@@ -5,10 +5,10 @@ import (
 
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
-	
-	"github.com/iamlockon/gorestemplate/pkg/logging"
+
 	"github.com/iamlockon/gorestemplate/models"
 	"github.com/iamlockon/gorestemplate/pkg/error"
+	"github.com/iamlockon/gorestemplate/pkg/logging"
 	"github.com/iamlockon/gorestemplate/pkg/util"
 )
 

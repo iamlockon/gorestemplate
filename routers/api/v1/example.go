@@ -7,10 +7,10 @@ import (
 	"github.com/Unknwon/com"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
+	"github.com/iamlockon/gorestemplate/pkg/app"
 	"github.com/iamlockon/gorestemplate/pkg/error"
 	"github.com/iamlockon/gorestemplate/pkg/setting"
 	"github.com/iamlockon/gorestemplate/pkg/util"
-	"github.com/iamlockon/gorestemplate/pkg/app"
 	"github.com/iamlockon/gorestemplate/service/example_service"
 )
 

@@ -13,7 +13,7 @@ type Gin struct {
 func (g *Gin) Response(httpCode, errCode int, data interface{}) {
 	g.C.JSON(httpCode, gin.H{
 		"code": httpCode,
-		"mgs": error.GetMsg(errCode),
+		"mgs":  error.GetMsg(errCode),
 		"data": data,
 	})
 

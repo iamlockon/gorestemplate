@@ -32,7 +32,6 @@ func (e *Example) Add() error {
 	return models.AddExample(e.Name, e.State, e.CreatedBy)
 }
 
-
 func (e *Example) Edit() error {
 	data := make(map[string]interface{})
 	data["modified_by"] = e.ModifiedBy

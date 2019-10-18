@@ -3,12 +3,20 @@
 Template for golang restful API servers. Help you go up and running with Restful Go API server in no time.
 
 ## Usage
+1. Clone the repository.
+2. Install dependencies.
 ```
-$go get -u github.com/iamlockon/gorestemplate
-//make sure GOPATH is properly set
-//then cd to gorestemplate/src
+govendor init
+govendor add +external
+```
+3. Format & Check syntax
+```
 $gofmt -w .
 $go vet .
+```
+3. Change the configs in "conf/app.ini"
+4. Build project
+```
 $go build .
 ```
 ## Dockerfile Usage

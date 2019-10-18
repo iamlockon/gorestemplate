@@ -1,32 +1,30 @@
 package main
 
 import (
-	"time"
 	"log"
+	"time"
 
 	"github.com/robfig/cron"
-
-	"github.com/iamlockon/gorestemplate/models"
 )
 
-func main() {
-    log.Println("Starting...")
+func run() {
+	log.Println("Starting...")
 
 	c := cron.New()
 	// Add your own cron jobs:
-    // c.AddFunc("* * * * * *", func() {
-    //     log.Println("Run models.CleanAllTag...")
-    //     models.CleanAllExample()
-    // })
+	// c.AddFunc("* * * * * *", func() {
+	//     log.Println("Run models.CleanAllTag...")
+	//     models.CleanAllExample()
+	// })
 
-    c.Start()
+	c.Start()
 
-    t1 := time.NewTimer(time.Second * 10) // trigger sending messages in 10 secs interval 
+	t1 := time.NewTimer(time.Second * 10) // trigger sending messages in 10 secs interval
 	// blocking for...select loop, will block main thread
 	for {
-        select {
+		select {
 		case <-t1.C:
-            t1.Reset(time.Second * 10)
-        }
-    }
+			t1.Reset(time.Second * 10)
+		}
+	}
 }

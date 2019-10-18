@@ -8,12 +8,12 @@ import (
 )
 
 type Example struct {
-	ID	 		int
-	Name 		string
-	State		int
+	ID    int
+	Name  string
+	State int
 
-	PageNum 	int
-	PageSize	int
+	PageNum  int
+	PageSize int
 }
 
 func (ex *Example) GetExamplesKey() string {

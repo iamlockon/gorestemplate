@@ -10,15 +10,15 @@ var MsgFlags = map[int]string{
 	ERROR_AUTH_TOKEN:               "Token generation failed",
 	ERROR_AUTH:                     "Wrong token",
 	//Add your API error messages
-	ERROR_EXAMPLE_EXIST: 	 		"Example exist",
-	ERROR_EXAMPLE_NOT_EXIST: 		"Example does not exist",
-	ERROR_EXIST_EXAMPLE_FAIL:		"Example exists but fail",
+	ERROR_EXAMPLE_EXIST:      "Example exist",
+	ERROR_EXAMPLE_NOT_EXIST:  "Example does not exist",
+	ERROR_EXIST_EXAMPLE_FAIL: "Example exists but fail",
 
-	ERROR_GET_EXAMPLE_FAIL:			"Get example failed",
-	ERROR_COUNT_EXAMPLE_FAIL: 		"Count example failed",
-	ERROR_ADD_EXAMPLE_FAIL:			"Add example failed",
-	ERROR_EDIT_EXAMPLE_FAIL: 		"Edit example failed",
-	ERROR_DELETE_EXAMPLE_FAIL:		"Delete example failed",
+	ERROR_GET_EXAMPLE_FAIL:    "Get example failed",
+	ERROR_COUNT_EXAMPLE_FAIL:  "Count example failed",
+	ERROR_ADD_EXAMPLE_FAIL:    "Add example failed",
+	ERROR_EDIT_EXAMPLE_FAIL:   "Edit example failed",
+	ERROR_DELETE_EXAMPLE_FAIL: "Delete example failed",
 }
 
 func GetMsg(code int) string {

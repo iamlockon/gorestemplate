@@ -11,13 +11,14 @@ type Example struct {
 	ModifiedBy string `json:"modified_by"`
 	State      int    `json:"state"`
 }
+
 // GetExamples gets a list of examples based on paging and constraints
 func GetExamples(pageNum int, pageSize int, maps interface{}) ([]Example, error) {
 	var (
 		examples []Example
-		err error
+		err      error
 	)
-	
+
 	if pageSize > 0 && pageNum > 0 {
 		err = db.Where(maps).Find(&examples).Offset(pageNum).Limit(pageSize).Error
 	} else {
@@ -30,6 +31,7 @@ func GetExamples(pageNum int, pageSize int, maps interface{}) ([]Example, error)
 
 	return examples, nil
 }
+
 // GetExampleTotal counts the total number of examples based on the constraint
 func GetExampleTotal(maps interface{}) (int, error) {
 	var count int

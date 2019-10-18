@@ -13,9 +13,9 @@ var RedisConn *redis.Pool
 
 func Setup() error {
 	RedisConn = &redis.Pool{
-		MaxIdle:		setting.RedisSetting.MaxIdle,
-		MaxActive: 		setting.RedisSetting.MaxActive,
-		IdleTimeout: 	setting.RedisSetting.IdleTimeout,
+		MaxIdle:     setting.RedisSetting.MaxIdle,
+		MaxActive:   setting.RedisSetting.MaxActive,
+		IdleTimeout: setting.RedisSetting.IdleTimeout,
 		Dial: func() (redis.Conn, error) { // for creating and configure connection
 			c, err := redis.Dial("tcp", setting.RedisSetting.Host)
 			if err != nil {
@@ -64,6 +64,7 @@ func Exists(key string) bool {
 
 	return exists
 }
+
 // Get will acquire an active connection from connection pool
 func Get(key string) ([]byte, error) {
 	conn := RedisConn.Get()
@@ -77,27 +78,27 @@ func Get(key string) ([]byte, error) {
 }
 
 func Delete(key string) (bool, error) {
-    conn := RedisConn.Get()
-    defer conn.Close()
+	conn := RedisConn.Get()
+	defer conn.Close()
 
-    return redis.Bool(conn.Do("DEL", key)) // cast as bool type
+	return redis.Bool(conn.Do("DEL", key)) // cast as bool type
 }
 
 func LikeDeletes(key string) error {
-    conn := RedisConn.Get()
-    defer conn.Close()
+	conn := RedisConn.Get()
+	defer conn.Close()
 
-    keys, err := redis.Strings(conn.Do("KEYS", "*"+key+"*")) // cast as []string type
-    if err != nil {
-        return err
-    }
+	keys, err := redis.Strings(conn.Do("KEYS", "*"+key+"*")) // cast as []string type
+	if err != nil {
+		return err
+	}
 
-    for _, key := range keys {
-        _, err = Delete(key)
-        if err != nil {
-            return err
-        }
-    }
+	for _, key := range keys {
+		_, err = Delete(key)
+		if err != nil {
+			return err
+		}
+	}
 
-    return nil
+	return nil
 }

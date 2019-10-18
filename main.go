@@ -7,10 +7,10 @@ import (
 
 	"github.com/fvbock/endless"
 
-	"github.com/iamlockon/gorestemplate/routers"
-	"github.com/iamlockon/gorestemplate/pkg/setting"
-	"github.com/iamlockon/gorestemplate/pkg/logging"
 	"github.com/iamlockon/gorestemplate/models"
+	"github.com/iamlockon/gorestemplate/pkg/logging"
+	"github.com/iamlockon/gorestemplate/pkg/setting"
+	"github.com/iamlockon/gorestemplate/routers"
 )
 
 func main() {

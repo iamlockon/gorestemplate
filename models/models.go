@@ -2,10 +2,10 @@ package models
 
 import (
 	"fmt"
-	"log"
-	"time"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"log"
+	"time"
 
 	"github.com/iamlockon/gorestemplate/pkg/setting"
 )
@@ -42,31 +42,31 @@ func Setup() {
 	db.DB().SetMaxIdleConns(10)
 	db.DB().SetMaxOpenConns(100)
 }
+
 // updateTimeStampForCreateCallback will set `CreatedOn`, `ModifiedOn` when creating
 func updateTimeStampForCreateCallback(scope *gorm.Scope) {
 	if !scope.HasError() {
 		nowTime := time.Now().Unix()
 		if createTimeField, ok := scope.FieldByName("CreatedOn"); ok {
-            if createTimeField.IsBlank {
-                createTimeField.Set(nowTime)
-            }
-        }
+			if createTimeField.IsBlank {
+				createTimeField.Set(nowTime)
+			}
+		}
 
-        if modifyTimeField, ok := scope.FieldByName("ModifiedOn"); ok {
-            if modifyTimeField.IsBlank {
-                modifyTimeField.Set(nowTime)
-            }
-        }
-    }
+		if modifyTimeField, ok := scope.FieldByName("ModifiedOn"); ok {
+			if modifyTimeField.IsBlank {
+				modifyTimeField.Set(nowTime)
+			}
+		}
+	}
 }
 
 // updateTimeStampForUpdateCallback will set `ModifyTime` when updating
 func updateTimeStampForUpdateCallback(scope *gorm.Scope) {
-    if _, ok := scope.Get("gorm:update_column"); !ok {
-        scope.SetColumn("ModifiedOn", time.Now().Unix())
-    }
+	if _, ok := scope.Get("gorm:update_column"); !ok {
+		scope.SetColumn("ModifiedOn", time.Now().Unix())
+	}
 }
-
 
 // Uncomment following lines if you need soft delete.
 // func deleteCallback(scope *gorm.Scope) {

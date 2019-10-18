@@ -2,8 +2,8 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
 	"github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 
 	_ "github.com/iamlockon/gorestemplate/docs" //must import this package for swagger to load docs.
 	"github.com/iamlockon/gorestemplate/pkg/setting"
@@ -68,7 +68,7 @@ func InitRouter() *gin.Engine {
 	// Add auth route
 	r.GET("/auth", api.GetAuth)
 
-	// Swagger API docs 
+	// Swagger API docs
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	// Example routes
 	apiv1 := r.Group("api/v1")
