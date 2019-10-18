@@ -1,0 +1,89 @@
+definitions:
+  models.Example:
+    properties:
+      created_by:
+        type: string
+      created_on:
+        type: integer
+      id:
+        type: integer
+      modified_by:
+        type: string
+      modified_on:
+        type: integer
+      name:
+        type: string
+      state:
+        type: integer
+    type: object
+info:
+  contact: {}
+  license: {}
+paths:
+  /examples:
+    get:
+      consumes:
+      - application/json
+      description: get by name
+      operationId: get-string-by-int
+      parameters:
+      - description: name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Token:
+              description: qwerty
+              type: string
+          schema:
+            $ref: '#/definitions/models.Example'
+        "400":
+          description: Bad Request
+          schema:
+            type: int
+        "404":
+          description: Not Found
+          schema:
+            type: int
+      summary: Get all example by name
+    post:
+      consumes:
+      - application/json
+      description: POST example
+      operationId: get-string-by-int
+      parameters:
+      - description: name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Token:
+              description: qwerty
+              type: string
+          schema:
+            $ref: '#/definitions/models.Example'
+        "400":
+          description: Bad Request
+          schema:
+            type: integer
+        "404":
+          description: Not Found
+          schema:
+            type: integer
+        "10001":
+          schema:
+            type: integer
+      summary: Add an example with created_by and name
+swagger: "2.0"

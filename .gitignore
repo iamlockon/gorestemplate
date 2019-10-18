@@ -1,0 +1,11 @@
+# OSX
+.DS_Store
+
+# logs
+runtime/
+
+# binary
+main
+
+# vendor
+vendor/
